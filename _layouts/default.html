@@ -39,6 +39,8 @@
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
           <hr>
+          <p>Project list last refreshed on {{site.last_updated}}</p>
+          {{site}}
         </div>
         <div class="card-columns">
           {% for repository in site.github.public_repositories %}
