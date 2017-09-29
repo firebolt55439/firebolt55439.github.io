@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="author" content="Sumer Kohli" />
 
 {% seo %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -39,8 +40,13 @@
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
           <hr>
-          <p>Project list last refreshed on {{site.updated_at}}</p>
-          {{site}}
+          {% for repository in site.github.public_repositories %}
+            {% if repository.name == site.hostname %}
+              <p>Project list last refreshed on {{site.updated_at}}</p>
+            {% endif %}
+            }
+          {% endfor %}
+          {{site.hostname}}
         </div>
         <div class="card-columns">
           {% for repository in site.github.public_repositories %}
