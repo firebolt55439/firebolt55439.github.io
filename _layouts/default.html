@@ -38,6 +38,7 @@
           <hr>
         </div>
         {{ content }}
+        {{site.github.public_repositories}}
         {% for repository in site.github.public_repositories %}
           * {{ repository.name }}
         {% endfor %}
