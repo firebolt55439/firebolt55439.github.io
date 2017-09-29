@@ -42,7 +42,7 @@
           <hr>
           {% for repository in site.github.public_repositories %}
             {% if repository.name == site.github.project_title %}
-              <p>Project list last refreshed on {{site.updated_at}}</p>
+              <p class="project-text">{{repository.updated_at}}</p>
             {% endif %}
           {% endfor %}
           {{site.github}}
@@ -82,7 +82,10 @@
     $(function() {
       $('.date-text').each(function() {
         $(this).text("Updated " + moment($(this).text()).fromNow());
-      })
+      });
+      $('.project-text').each(function() {
+        $(this).text("Project list last refreshed on " + moment($(this).text()).fromNow());
+      });
     });
   </script>
   </body>
