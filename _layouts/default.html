@@ -51,7 +51,8 @@
         <div class="card-columns">
           {%- for repository in site.github.public_repositories -%}
             {%- assign repo_name = repository.name -%}
-            {%- for idx in (0..orig_names.size-1) -%}
+            {%- assign arr_limit = orig_names.size-1 -%}
+            {%- for idx in (0..arr_limit) -%}
               {{idx}}
               {{orig_names[idx]}}
               {%- if repository.name == orig_names[idx] -%}
