@@ -53,10 +53,7 @@
             {%- assign repo_name = repository.name -%}
             {%- assign idx = 0 -%}
             {%- for orig_name in orig_names -%}
-              {{idx}}
-              {{orig_names[idx]}}
               {%- if repository.name == orig_names[idx] -%}
-                {{'got it:' | append: orig_names[idx] | append: '|' | append: repository.name}}
                 {%- assign repo_name = pretty_names[idx] -%}
                 {%- break -%}
               {%- endif -%}
