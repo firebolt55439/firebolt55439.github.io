@@ -39,12 +39,12 @@
         <div id="title">
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
-          <hr>
           {% for repository in site.github.public_repositories %}
             {% if repository.name == site.github.project_title %}
               <p class="project-text">{{repository.pushed_at}}</p>
             {% endif %}
           {% endfor %}
+          <hr>
         </div>
         <div class="card-columns">
           {% for repository in site.github.public_repositories %}
@@ -87,7 +87,7 @@
         $(this).text("Updated " + moment($(this).text()).fromNow());
       });
       $('.project-text').each(function() {
-        $(this).text("Project list last refreshed on " + moment($(this).text()).fromNow());
+        $(this).text("Project list last refreshed " + moment($(this).text()).fromNow());
       });
     });
   </script>
