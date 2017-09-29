@@ -52,13 +52,12 @@
           {%- for repository in site.github.public_repositories -%}
             {%- assign idx = 0 -%}
             {%- assign found_pretty_name = 0 -%}
-            {%- for orig_name in orig_names -%}
-              {%- if repository.name == orig_name -%}
+            {%- for idx in (0..orig_names.size-1) -%}
+              {%- if repository.name == orig_names[idx] -%}
                 {%- assign repo_name = pretty_names[idx] -%}
-                {%- assign found_pretty_name = 1 -%}
+                {%- increment found_pretty_name -%}
                 {%- break -%}
               {%- endif -%}
-              {%- assign idx = idx + 1 -%}
             {%- endfor -%}
             {%- unless found_pretty_name == 1 -%}
               {%- assign repo_name = repository.name -%}
