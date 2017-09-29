@@ -57,7 +57,7 @@
                 {%- assign repo_name = pretty_names[idx] -%}
                 {%- assign found_pretty_name = 1 -%}
               {%- endif -%}
-              {%- increment idx -%}
+              {%- assign idx = idx + 1 -%}
             {%- endfor -%}
             {%- unless found_pretty_name == 1 -%}
               {%- assign repo_name = repository.name -%}
@@ -65,9 +65,9 @@
             <div class="card">
               <div class="card-block">
                 {%- if repository.has_pages -%}
-                  <h4 class="card-title"><a href={{'/' | append: repository.name | relative_url}}>{{repository.name}}</a></b></h4>
+                  <h4 class="card-title"><a href={{'/' | append: repository.name | relative_url}}>{{repo_name}}</a></b></h4>
                 {%- else -%}
-                  <h4 class="card-title"><b>{{repository.name}}{%- if repository.fork -%} <small>(fork)</small>{%- endif -%}</b></h4>
+                  <h4 class="card-title"><b>{{repo_name}}{% if repository.fork -%} <small>(fork)</small>{%- endif -%}</b></h4>
                 {%- endif -%}
                 <p class="card-text">{{repository.description}}</p>
                 <a href={{repository.html_url}} class="btn btn-primary" target="_blank">View on Github</a>
