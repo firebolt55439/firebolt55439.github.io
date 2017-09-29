@@ -60,7 +60,7 @@
                 {%- assign repo_name = pretty_names[idx] -%}
                 {%- break -%}
               {%- endif -%}
-              {%- assign idx = idx | plus 1 -%}
+              {%- assign idx = {{idx | plus 1}} -%}
             {%- endfor -%}
             <div class="card">
               <div class="card-block">
