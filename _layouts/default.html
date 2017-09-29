@@ -42,7 +42,7 @@
           <hr>
           {% for repository in site.github.public_repositories %}
             {% if repository.name == site.github.project_title %}
-              <p class="project-text">{{repository.updated_at}}</p>
+              <p class="project-text">{{repository.pushed_at}}</p>
             {% endif %}
           {% endfor %}
           {{site.github}}
@@ -60,7 +60,7 @@
                 <a href={{repository.html_url}} class="btn btn-primary">View on Github</a>
               </div>
               <div class="card-footer">
-                <small class="text-muted date-text">{{repository.updated_at}}</small>
+                <small class="text-muted date-text">{{repository.pushed_at}}</small>
               </div>
             </div>
           {% endfor %}
