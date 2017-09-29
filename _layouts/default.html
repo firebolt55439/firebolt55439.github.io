@@ -53,7 +53,7 @@
             {%- assign repo_name = repository.name -%}
             {%- for idx in (0..orig_names.size-1) -%}
               {{idx}}
-              {{repository.name == orig_names[idx]}}
+              {{orig_names[idx]}}
               {%- if repository.name == orig_names[idx] -%}
                 {%- assign repo_name = pretty_names[idx] -%}
                 {%- break -%}
