@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"></script>
     <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,13 +44,13 @@
         <div class="card-columns">
           {% for repository in site.github.public_repositories %}
             <div class="card">
-              <img class="card-img-top" src="">
               <div class="card-block">
                 <h4 class="card-title">{{repository.name}}</h4>
                 <p class="card-text">{{repository.description}}</p>
+                <a href={{repository.html_url}} class="btn btn-primary">View on Github</a>
               </div>
               <div class="card-footer">
-                <small class="text-muted">{{repository.date}}</small>
+                <small class="text-muted date-text">{{repository.updated_at}}</small>
               </div>
             </div>
           {% endfor %}
@@ -71,5 +72,12 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      $('.date-text').each(function() {
+        $(this).text(moment($(this).text()).fromNow());
+      })
+    });
+  </script>
   </body>
 </html>
