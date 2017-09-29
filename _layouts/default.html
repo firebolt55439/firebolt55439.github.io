@@ -53,7 +53,7 @@
             {%- assign idx = 0 -%}
             {%- assign found_pretty_name = 0 -%}
             {%- for orig_name in orig_names -%}
-              {%- if repository.name == orig_names -%}
+              {%- if repository.name == orig_name -%}
                 {%- assign repo_name = pretty_names[idx] -%}
                 {%- assign found_pretty_name = 1 -%}
               {%- endif -%}
