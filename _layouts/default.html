@@ -50,21 +50,19 @@
         {%- assign orig_names = "airplay-hangman|Diep.io-Protocol|PHP-Battleship|battleboat-online|fanfic-downloader|sce-chess|CloudyTabs|firebolt55439.github.io|Subworkers|cors-proxy-heroku|gomovies|svm|libairplay" | split: "|" -%}
         <div class="card-columns">
           {%- for repository in site.github.public_repositories -%}
-            {%- assign idx = 0 -%}
-            {%- assign found_pretty_name = 0 -%}
+          {%- assign repo_name = repository.name -%}
             {%- for idx in (0..orig_names.size-1) -%}
               {%- if repository.name == orig_names[idx] -%}
-                {%- assign repository.name = pretty_names[idx] -%}
-                {%- increment found_pretty_name -%}
+                {%- assign repo_name = pretty_names[idx] -%}
                 {%- break -%}
               {%- endif -%}
             {%- endfor -%}
             <div class="card">
               <div class="card-block">
                 {%- if repository.has_pages -%}
-                  <h4 class="card-title"><a href={{'/' | append: repository.name | relative_url}}>{{repository.name}}</a></b></h4>
+                  <h4 class="card-title"><a href={{'/' | append: repository.name | relative_url}}>{{repo_name}}</a></b></h4>
                 {%- else -%}
-                  <h4 class="card-title"><b>{{repository.name}}{% if repository.fork %} <small>(fork)</small>{% endif %}</b></h4>
+                  <h4 class="card-title"><b>{{repo_name}}{% if repository.fork %} <small>(fork)</small>{% endif %}</b></h4>
                 {%- endif -%}
                 <p class="card-text">{{repository.description}}</p>
                 <a href={{repository.html_url}} class="btn btn-primary" target="_blank">View on Github</a>
