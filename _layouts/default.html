@@ -53,7 +53,7 @@
                 {% if repository.has_pages %}
                   <h4 class="card-title"><a href={{'/' | append: repository.name | relative_url}}>{{repository.name}}</a></b></h4>
                 {% else %}
-                  <h4 class="card-title"><b>{{repository.name}}{% if repository.fork %} <i>(fork)</i>{% endif %}</b></h4>
+                  <h4 class="card-title"><b>{{repository.name}}{% if repository.fork %} <small>(fork)</small>{% endif %}</b></h4>
                 {% endif %}
                 <p class="card-text">{{repository.description}}</p>
                 <a href={{repository.html_url}} class="btn btn-primary" target="_blank">View on Github</a>
