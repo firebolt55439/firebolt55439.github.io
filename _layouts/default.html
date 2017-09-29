@@ -41,12 +41,11 @@
           <p>{{ site.description | default: site.github.project_tagline }}</p>
           <hr>
           {% for repository in site.github.public_repositories %}
-            {% if repository.name == site.hostname %}
+            {% if repository.name == site.github.project_title %}
               <p>Project list last refreshed on {{site.updated_at}}</p>
             {% endif %}
-            }
           {% endfor %}
-          {{site.hostname}}
+          {{site.github}}
         </div>
         <div class="card-columns">
           {% for repository in site.github.public_repositories %}
