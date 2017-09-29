@@ -50,7 +50,7 @@
           {% for repository in site.github.public_repositories %}
             <div class="card">
               <div class="card-block">
-                {% if repository.has_pages}
+                {% if repository.has_pages %}
                   <h4 class="card-title"><a href={{'/' | append: repository.name | relative_url}}>{{repository.name}}</a></b></h4>
                 {% else %}
                   <h4 class="card-title"><b>{{repository.name}}</b></h4>
