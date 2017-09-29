@@ -50,8 +50,10 @@
         {%- assign orig_names = "airplay-hangman|Diep.io-Protocol|PHP-Battleship|battleboat-online|fanfic-downloader|sce-chess|CloudyTabs|firebolt55439.github.io|Subworkers|cors-proxy-heroku|gomovies|svm|libairplay" | split: "|" -%}
         <div class="card-columns">
           {%- for repository in site.github.public_repositories -%}
-          {%- assign repo_name = repository.name -%}
+            {%- assign repo_name = repository.name -%}
             {%- for idx in (0..orig_names.size-1) -%}
+              {{idx}}
+              {{repository.name == orig_names[idx]}}
               {%- if repository.name == orig_names[idx] -%}
                 {%- assign repo_name = pretty_names[idx] -%}
                 {%- break -%}
