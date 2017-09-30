@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"></script>
     <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
+    <script src="https://use.fontawesome.com/d4fa3b1e5a.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -94,7 +95,7 @@
   <script>
     $(function() {
       $('.date-text').each(function() {
-        $(this).html("<span class=\"glyphicon glyphicon-time\"></span> Updated " + moment($(this).text()).fromNow());
+        $(this).html("<i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Updated " + moment($(this).text()).fromNow());
       });
       $('.project-text').each(function() {
         $(this).text("Last updated " + moment($(this).text()).fromNow() + ".");
