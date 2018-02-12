@@ -85,6 +85,7 @@
   <script>
     $(function() {
       $('.date-text').each(function() {
+        console.log($(this).text());
         $(this).html("<i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Updated " + moment($(this).text()).fromNow());
       });
       $('.project-text').each(function() {
