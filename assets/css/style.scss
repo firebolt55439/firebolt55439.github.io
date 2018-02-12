@@ -17,15 +17,30 @@
 	margin-top: -30px;
 }
 
-@media screen and (min-width: 300px) and (max-width: 575px) {
-	.card-columns {
-		column-count: 2;
+.card {
+	display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+	.card {
+		margin-top: 20px;
 	}
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (min-width: 425px) and (max-width: 600px) {
+	.card-columns {
+		column-count: 2;
+		-moz-column-count: 2;
+	}
+}
+
+@media screen and (max-width: 425px) {
 	.card-columns {
 		column-count: 1;
+	}
+
+	.card {
+		width: 100%;
 	}
 }
 
