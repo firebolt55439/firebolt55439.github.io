@@ -85,11 +85,10 @@
   <script>
     $(function() {
       $('.date-text').each(function() {
-        console.log($(this).text());
-        $(this).html("<i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Updated " + moment($(this).text()).fromNow());
+        $(this).html("<i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i> Updated " + moment.utc($(this).text().split(' UTC')[0]).fromNow());
       });
       $('.project-text').each(function() {
-        $(this).text("Last updated " + moment($(this).text()).fromNow() + ".");
+        $(this).text("Last updated " + moment.utc($(this).text().split(' UTC')[0]).fromNow() + ".");
       });
     });
   </script>
