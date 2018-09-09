@@ -51,3 +51,8 @@
 .project-text {
 	margin-top: -8px;
 }
+
+.fork_h :hover > a {
+	background-color: green !important;
+	text-decoration: none !important;
+}
