@@ -17,20 +17,19 @@
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
-  <body>
-    <div id="header">
-      <nav style="background: none !important;">
-        <a class="btn btn-primary" href="/assets/Resume.pdf">Resume</a>
-      </nav>
-    </div>
+  <body style="background: #25252500 !important; background: linear-gradient(to right, #243B55, #141E30) !important;">
     <div class="jumbotron-top-right">
       <div class="top-right-icon"><a target="_blank" href="https://github.com/firebolt55439"><div class="top-right-image" data-img="assets/img/github.svg"></div></a></div>
-      <div class="top-right-icon"><a target="_blank" href="https://linkedin.com/in/sumerkohli"><div class="top-right-image" data-img="assets/img/linkedin.png"></div></a></div>
-      <div class="top-right-icon"><a target="_self" href="mailto:sumer.kohli@berkeley.edu"><div class="top-right-image" data-img="assets/img/email.png"></div></a></div>
+      <div class="top-right-icon"><a target="_blank" href="https://linkedin.com/in/sumerkohli"><div class="top-right-image" data-img="assets/img/linkedin.svg"></div></a></div>
+      <div class="top-right-icon"><a target="_self" href="mailto:sumer.kohli@berkeley.edu"><div class="top-right-image" data-img="assets/img/email.svg"></div></a></div>
+      <br />
+      <div style="text-align: right;">
+        <div class="top-right-icon"><a target="_self" href="/assets/Resume.pdf"><div class="top-right-image" data-img="assets/img/resume.svg"></div></a></div>
+      </div>
     </div>
     <div class="wrapper">
       <section>
-        <div id="title">
+        <div id="title" style="text-align: center;">
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
           {%- for repository in site.github.public_repositories -%}
@@ -95,7 +94,8 @@
       });
     });
     $('.top-right-image').each(function() {
-      $(this).css('background-image', `url("${$(this).data("img")}")`);
+      $(this).css('-webkit-mask', `url("${$(this).data("img")}") no-repeat 50% 50%`);
+      $(this).css("background-color", 'white');
     });
     $('.top-right-icon').each(function(index, el) {
       setTimeout(function() {
