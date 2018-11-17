@@ -18,14 +18,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
-    <div id="header" style="background-color: none;">
-      <nav>
-        <div class="btn-group">
-          <a class="btn btn-primary" role="button" href="https://github.com/firebolt55439">GitHub Account</a>
-          <a class="btn btn-info" role="button" href="https://linkedin.com/in/sumerkohli">LinkedIn</a>
-          <a class="btn btn-success" role="button" href="/assets/Resume.pdf">Resume</a>
-        </div>
-      </nav>
+    <div class="jumbotron-top-right">
+      <div class="top-right-icon"><a target="_blank" href="https://github.com/firebolt55439"><div class="top-right-image" data-img="assets/img/github.svg"></div></a></div>
+      <div class="top-right-icon"><a target="_blank" href="https://linkedin.com/in/sumerkohli"><div class="top-right-image" data-img="assets/img/linkedin.png"></div></a></div>
+      <div class="top-right-icon"><a target="_blank" href="/assets/Resume.pdf"><div class="top-right-image" data-img="assets/img/resume.png"></div></a></div>
+      <div class="top-right-icon"><a target="_self" href="mailto:sumer.kohli@berkeley.edu"><div class="top-right-image" data-img="assets/img/email.png"></div></a></div>
     </div>
     <div class="wrapper">
       <section>
@@ -92,6 +89,17 @@
       $('.project-text').each(function() {
         $(this).text("Last updated " + moment.utc($(this).text().split(' UTC')[0]).fromNow() + ".");
       });
+    });
+    $('.top-right-image').each(function() {
+      $(this).css('background-image', `url("${$(this).data("img")}")`);
+    });
+    $('.top-right-icon').each(function(index, el) {
+      setTimeout(function() {
+        $(el).addClass('top-right-fade');
+        setTimeout(function() {
+          $(el).addClass('top-right-transition');
+        }, 300);
+      }, (index * 350));
     });
   </script>
   </body>
