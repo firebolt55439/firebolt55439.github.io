@@ -40,22 +40,30 @@
           <hr>
         </div>
         {%- assign pretty_names = "Airplay Hangman|Diep.io Protocol|PHP Battleship|Battleboat Online|Fanfiction Downloader|SCE Chess|CloudyTabs|Account Page|JS Subworkers|Heroku CORS Proxy|GoMovies!|SVM|libairplay|Hare Compiler|iOS Hangman|iOS Fanfiction Viewer|Symbolic Differentiator|Maze Generator|Audiocatcher" | split: "|" -%}
+        {%- assign custom_urls = "||||||||||||||||https://symbolic-differentiator.firebaseapp.com||" | split: "|" -%}
         {%- assign orig_names = "airplay-hangman|Diep.io-Protocol|PHP-Battleship|battleboat-online|fanfic-downloader|sce-chess|CloudyTabs|firebolt55439.github.io|Subworkers|cors-proxy-heroku|gomovies|svm|libairplay|language-compiler|ios-hangman|ios-fanfiction-viewer|symbolic-differentiator|maze-generator|audiocatcher" | split: "|" -%}
         <div class="card-columns">
           {%- for repository in site.github.public_repositories -%}
             {%- assign repo_name = repository.name -%}
+            {%- assign repo_url = "" -%}
+            {%- if repository.has_pages -%}
+              {%- assign repo_url = '/' | append: repository.name | relative_url -%}
+            {%- endif -%}
             {%- assign idx = 0 -%}
             {%- for orig_name in orig_names -%}
               {%- if repository.name == orig_names[idx] -%}
                 {%- assign repo_name = pretty_names[idx] -%}
+                {%- if custom_urls[idx] != "" -%}
+                  {%- assign repo_url = custom_urls[idx] -%}
+                {%- endif -%}
                 {%- break -%}
               {%- endif -%}
               {%- assign idx = idx | plus: 1 -%}
             {%- endfor -%}
             <div class="card">
               <div class="card-block">
-                {%- if repository.has_pages -%}
-                  <h4 class="card-title"><a href={{'/' | append: repository.name | relative_url}}>{{repo_name}}</a></b></h4>
+                {%- if repo_url != "" -%}
+                  <h4 class="card-title"><a href={{repo_url}}>{{repo_name}}</a></b></h4>
                 {%- else -%}
                   <h4 class="card-title"><b>{{repo_name}}{% if repository.fork %} <small>(fork)</small>{% endif %}</b></h4>
                 {%- endif -%}
