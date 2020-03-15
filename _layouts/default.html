@@ -19,12 +19,12 @@
   </head>
   <body style="background: linear-gradient(to right, #243B55, #141E30) !important;">
     <div class="jumbotron-top-right">
-      <div class="top-right-icon"><a target="_blank" href="https://github.com/firebolt55439"><div class="top-right-image" data-img="assets/img/github.svg"></div></a></div>
-      <div class="top-right-icon"><a target="_blank" href="https://linkedin.com/in/sumerkohli"><div class="top-right-image" data-img="assets/img/linkedin.svg"></div></a></div>
-      <div class="top-right-icon"><a target="_self" href="mailto:sumer.kohli@berkeley.edu"><div class="top-right-image" data-img="assets/img/email.svg"></div></a></div>
+      <div class="top-right-icon"><a target="_blank" href="https://github.com/firebolt55439"><div class="top-right-image top-right-svg" data-img="assets/img/github.svg"></div></a></div>
+      <div class="top-right-icon"><a target="_blank" href="https://linkedin.com/in/sumerkohli"><div class="top-right-image" data-img="assets/img/linkedin.png"></div></a></div>
+      <div class="top-right-icon"><a target="_self" href="mailto:sumer.kohli@berkeley.edu"><div class="top-right-image" data-img="assets/img/email.png"></div></a></div>
       <br />
-      <div style="text-align: right;">
-        <div class="top-right-icon"><a target="_self" href="/assets/Resume.pdf"><div class="top-right-image" data-img="assets/img/resume.svg"></div></a></div>
+      <div style="text-align: right; margin-top: 0.4rem;">
+        <div class="top-right-icon"><a target="_self" href="/assets/Resume.pdf"><div class="top-right-image top-right-svg" data-img="assets/img/resume.svg"></div></a></div>
       </div>
     </div>
     <div class="wrapper">
@@ -105,8 +105,12 @@
       });
     });
     $('.top-right-image').each(function() {
-      $(this).css('-webkit-mask', `url("${$(this).data("img")}") no-repeat 50% 50%`);
-      $(this).css("background-color", 'white');
+      if ($(this).hasClass("top-right-svg")) {
+        $(this).css('-webkit-mask', `url("${$(this).data("img")}") no-repeat 50% 50%`);
+        $(this).css("background-color", 'white');
+      } else {
+        $(this).css('background-image', `url("${$(this).data("img")}")`);
+      }
     });
     $('.top-right-icon').each(function(index, el) {
       setTimeout(function() {
